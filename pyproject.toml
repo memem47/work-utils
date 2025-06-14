@@ -1,0 +1,19 @@
+[project]
+name            = "work-utils"                       # パッケージ名 (= pip install 名)
+version         = "0.1.0"                            # 固定バージョン。タグを切るごとに更新
+description     = "Utility functions we reuse at work"
+readme          = "README.md"                        # PyPI 上の長文説明に README を流用
+authors         = [{ name = "Your Name", email = "you@example.com" }]
+license         = { text = "MIT" }                   # SPDX ID でも OK
+requires-python = ">=3.10"
+dependencies    = [
+  "numpy",
+  "pillow"
+]
+
+[project.optional-dependencies]                      # `pip install "work-utils[dev]"` 用
+dev = ["pytest", "ruff", "mypy", "build", "twine"]
+
+[build-system]                                       # PEP 517 ビルドバックエンド宣言
+requires = ["setuptools>=70", "wheel"]               # インストール時に先に入れてね、という依存
+build-backend = "setuptools.build_meta"
